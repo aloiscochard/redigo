@@ -1,0 +1,28 @@
+name:                redigo
+version:             0.1.0.0
+synopsis:            A HTTP Routing Engine (FastCGI/Redis)
+-- description:         
+homepage:            http://github.com/aloiscochard/redigo
+license:             Apache-2.0
+license-file:        LICENSE
+author:              Alois Cochard
+maintainer:          alois.cochard@gmail.com
+-- copyright:           
+category:            Network
+build-type:          Simple
+-- extra-source-files:  
+cabal-version:       >=1.10
+
+executable redigo-service
+  default-language:    Haskell2010
+  main-is:             redigo-service/Main.hs
+  ghc-options:         -O2 -threaded -fwarn-incomplete-patterns
+  default-extensions:  DeriveDataTypeable, ExistentialQuantification, FlexibleContexts, NoMonomorphismRestriction, TypeFamilies, ScopedTypeVariables
+  build-depends:       base >=4.6 && <4.7, bytestring, cgi, fastcgi, hedis, monads-tf, network, stm, unix
+
+executable redigo-testkit
+  default-language:    Haskell2010
+  main-is:             redigo-testkit/Main.hs
+  ghc-options:         -O2 -fwarn-incomplete-patterns
+  default-extensions:  DeriveDataTypeable, ExistentialQuantification, FlexibleContexts, NoMonomorphismRestriction, TypeFamilies, ScopedTypeVariables
+  build-depends:       base >=4.6 && <4.7, bytestring, hedis, monads-tf, monad-loops, mwc-random, primitive, network, unix
